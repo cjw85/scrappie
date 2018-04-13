@@ -3,8 +3,11 @@ set -e -x
 export MANYLINUX=1
 
 # Install a system package required by our library
-yum install -y atlas-devel
-ln -s /usr/lib64/atlas/libcblas.so /usr/lib64/libblas.so
+#yum install -y atlas-devel
+#ln -s /usr/lib64/atlas/libcblas.so /usr/lib64/libblas.so
+
+yum install -y atlas-devel openblas-devel
+ln -s /usr/lib64/libopenblas.so.0 /usr/lib64/libblas.so
 
 cd /io/python
 
